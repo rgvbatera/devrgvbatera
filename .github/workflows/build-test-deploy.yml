@@ -1,7 +1,7 @@
-name: hello-world
+name: build-test-deploy
 on: push
 jobs: 
-  hello-world-job:
+  build:
     runs-on: ubuntu-latest
     steps: 
       - name: checkout repo
@@ -12,8 +12,7 @@ jobs:
           node-version: '18.x'
       - run: npm install
       - run: npm run build 
-
-test: 
+  test: 
     needs: build
     runs-on: ubuntu-latest
     steps: 
